@@ -7,7 +7,7 @@ cascadePath = "Cascades/haarcascade_frontalface_default.xml"
 faceCascade = cv2.CascadeClassifier(cascadePath);
 font = cv2.FONT_HERSHEY_SIMPLEX
 #iniciate id counter
-id = 0
+id =0
 
 # names related to ids: example ==> Marcelo: id=1,  etc
 names = ['None', 'Mohak' , 'Chinmay' , 'Omkar' , 'Mahadev' , 'Chinmay' ,'Mohak' , 'Mahadev' , 'Omkar' , 'Siddhant' , 'Siddhant', 'Deep' ] 
@@ -42,24 +42,8 @@ while True:
             id = "unknown"
             confidence = "  {0}%".format(round(100 - confidence))
         
-        cv2.putText(
-                    img, 
-                    str(id), 
-                    (x+5,y-5), 
-                    font, 
-                    1, 
-                    (255,255,255), 
-                    2
-                   )
-        cv2.putText(
-                    img, 
-                    str(confidence), 
-                    (x+5,y+h-5), 
-                    font, 
-                    1, 
-                    (255,255,0), 
-                    1
-                   )  
+        cv2.putText(img, str(id), (x+5,y-5), font, 1, (255,255,255), 2)
+        cv2.putText(img, str(confidence), (x+5,y+h-5), font, 1, (255,255,0), 1)  
     
     cv2.imshow('camera',img) 
     k = cv2.waitKey(10) & 0xff # Press 'ESC' for exiting video
