@@ -8,8 +8,8 @@ my_w.configure(background="purple")
 my_connect = mysql.connector.connect(
   host="localhost",
   user="root", 
-  passwd="T21057",
-  database="visitorinfo"
+  passwd="root",
+  database="VisitorDB"
 )
 
 my_conn = my_connect.cursor()
@@ -41,10 +41,10 @@ def make_something(value):
     global variable
     variable = value
 
-b3=Button(fg="white",text="register person",width=20,bg="green")
-b3.grid(row=3,column=5)
-b4=Button(fg="white",text="remove person",width=20,bg="red")
-b4.grid(row=5,column=5)
+# b3=Button(fg="white",text="register person",width=20,bg="green")
+# b3.grid(row=3,column=5)
+# b4=Button(fg="white",text="remove person",width=20,bg="red")
+# b4.grid(row=5,column=5)
 
 i=1
 for visitor in my_conn: 
