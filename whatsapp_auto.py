@@ -8,8 +8,6 @@ class WhatsAppMessageSender:
         self.message = message
     
     def send_message(self):
-        pwk.sendwhatmsg_instantly(self.phone_number, self.message)
-        time.sleep(0.5)
-        pg.press("enter")
-        time.sleep(0.5)
+        pwk.sendwhatmsg_instantly(self.phone_number, self.message , 10)
+        time.sleep(25)
         pg.hotkey('ctrl','w')
