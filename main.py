@@ -8,7 +8,7 @@ name_list = visitor[1]
 phone_number = visitor[2]
 roll_number = visitor[0]
 
-Detector = FaceRecognizer
+Detector = FaceRecognizer()
 
 available = True
 if available:
