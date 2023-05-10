@@ -11,21 +11,21 @@ roll_number = visitor[0]
 
 Detector = FaceRecognizer()
 
-available = True
-if available:
-    message = "\nYou may come in"
-else:
-    message = "\nPlease visit later"
+def set_message(available):
+    if available:
+        message = "\nYou may come in"
+    else:
+        message = "\nPlease visit later"
+    return message
 
-while True:
-    NameOfVisitor = Detector.faceRecognition()
-    if NameOfVisitor in name_list:
-        visitorNumber = name_list.index(NameOfVisitor)
-        
-        #Add button for below 2 Lines of code to activate whatsapp message sendings
+def recognizeFaces():
+    while True:
+        NameOfVisitor = Detector.faceRecognition()
+        if NameOfVisitor in name_list:
+            visitorNumber = name_list.index(NameOfVisitor)
+            break
+    return NameOfVisitor , visitorNumber
+
+def send_message(message , NameOfVisitor , visitorNumber):
         sendto = ws_auto.WhatsAppMessageSender('+91'+ str(phone_number[visitorNumber]), "Hello "+ NameOfVisitor + message)
         ws_auto.WhatsAppMessageSender.send_message(sendto)
-
-    key = cv2.waitKey(0)
-    if key == 27:
-        break
