@@ -1,4 +1,7 @@
-from win10toast import ToastNotifier
+from plyer import notification
 
-toaster = ToastNotifier()
-toaster.show_toast("VISITOR MANAGEMENT SYSTEM", "You have a new visitor!!", duration=10, icon_path="path/to/icon.ico")
+notification.notify(
+         title = "VISITOR MANAGEMENT SYSTEM",
+         message = "You Have a visitor\n" + "Omkar" + " Wants Permission to visit you" ,
+         timeout = 10
+    )

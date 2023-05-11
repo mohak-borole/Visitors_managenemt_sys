@@ -1,7 +1,7 @@
 import pandasreader as pdr
 import whatsapp_auto as ws_auto
 from FaceRecognizer import FaceRecognizer
-import cv2
+from plyer import notification
 
 file1 = pdr.ExcelReader("/home/mohakborole/Desktop/Projects/Visitors_managenemt_sys/testdata.xlsx", "Sheet1")
 visitor = pdr.ExcelReader.read_data(file1)
@@ -24,6 +24,11 @@ def recognizeFaces():
         if NameOfVisitor in name_list:
             visitorNumber = name_list.index(NameOfVisitor)
             break
+    notification.notify(
+         title = "VISITOR MANAGEMENT SYSTEM",
+         message = "You Have a visitor\n" + NameOfVisitor + "Wants Permission to visit you" ,
+         timeout = 10
+    )
     return NameOfVisitor , visitorNumber
 
 def send_message(message , NameOfVisitor , visitorNumber):
