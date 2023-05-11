@@ -26,7 +26,7 @@ def recognizeFaces():
             break
     notification.notify(
          title = "VISITOR MANAGEMENT SYSTEM",
-         message = "You Have a visitor\n" + NameOfVisitor + "Wants Permission to visit you" ,
+         message = "You Have a visitor\n" + NameOfVisitor + " Wants Permission to visit you" ,
          timeout = 10
     )
     return NameOfVisitor , visitorNumber
