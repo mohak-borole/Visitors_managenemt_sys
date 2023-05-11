@@ -1,8 +1,7 @@
-
 import tkinter  as tk 
 from tkinter import * 
-from subprocess import call
-import pandas as pd
+# from subprocess import call
+# import pandas as pd
 import openpyxl
 import main
 
