@@ -20,7 +20,7 @@ max_col = sheet_obj.max_column
 max_row = sheet_obj.max_row
 
 
-e=Label(my_w,width=20,text='Id',borderwidth=10, relief='ridge',anchor=CENTER,bg='yellow')
+e=Label(my_w,width=20,text='Roll Number',borderwidth=10, relief='ridge',anchor=CENTER,bg='yellow')
 e.grid(row=1,column=1)
 e=Label(my_w,width=20,text='Name',borderwidth=10, relief='ridge',anchor=CENTER,bg='yellow')
 e.grid(row=1,column=2)
@@ -32,17 +32,21 @@ e=Label(my_w,width=20,text='Wait',borderwidth=10, relief='ridge',anchor=CENTER,b
 e.grid(row=1,column=5)
 
 def isAvailable():
-    main.set_message(True)
+    main.set_message(1)
     global visitor , index
     visitor,index  = main.recognizeFaces()
 
 def isNotAvailable():
-    main.set_message(False)
+    while True:
+        main.set_message(3)
+        visitor = ""
+        visitor,index  = main.recognizeFaces()
+        main.send_message(main.set_message(3) , visitor , index)
 
 def allowed():
-    main.send_message(main.set_message(True) , visitor , index)
+    main.send_message(main.set_message(1) , visitor , index)
 def not_allowed():
-    main.send_message(main.set_message(False) , visitor , index)
+    main.send_message(main.set_message(2) , visitor , index)
 
 
 b3=Button(fg="white",text="Available",width=20,bg="green" , command = isAvailable)

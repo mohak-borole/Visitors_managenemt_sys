@@ -12,10 +12,12 @@ roll_number = visitor[0]
 Detector = FaceRecognizer()
 
 def set_message(available):
-    if available:
+    if available == 1:
         message = "\nYou may come in"
-    else:
-        message = "\nPlease visit later"
+    elif available == 2:
+        message = "\nPlease Wait"
+    elif available == 3:
+        message = "\nPlease Visit Later"
     return message
 
 def recognizeFaces():
@@ -27,7 +29,7 @@ def recognizeFaces():
     notification.notify(
          title = "VISITOR MANAGEMENT SYSTEM",
          message = "You Have a visitor\n" + NameOfVisitor + " Wants Permission to visit you" ,
-         timeout = 10
+         #timeout = 10
     )
     return NameOfVisitor , visitorNumber
 
