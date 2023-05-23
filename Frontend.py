@@ -1,5 +1,6 @@
 import tkinter  as tk 
 from tkinter import * 
+import cv2
 # from subprocess import call
 # import pandas as pd
 import openpyxl
@@ -42,6 +43,9 @@ def isNotAvailable():
         visitor = ""
         visitor,index  = main.recognizeFaces()
         main.send_message(main.set_message(3) , visitor , index)
+        kwy = cv2.waitKey(10)
+        if kwy == 27:
+            break
 
 def allowed():
     main.send_message(main.set_message(1) , visitor , index)
